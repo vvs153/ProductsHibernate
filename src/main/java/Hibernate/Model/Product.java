@@ -19,11 +19,13 @@ public class Product {
     private String name;
     @Enumerated(value = EnumType.STRING)
     private Category category;
-    @Formula("(SELECT SUM(price*quantity)/SUM(quantity)) FROM ocena o WHERE o.student_id=id)")
-    private Double avgWeighted;
-
+    //  @Formula("(SELECT SUM(s.price*s.quantity)/SUM(s.quantity)) FROM sales s WHERE s.product_id=id)")
+    // private Double avgWeighted;
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy = "product") // nazwa pola
     private Set<Sales> sales;
+
+
+
 }
